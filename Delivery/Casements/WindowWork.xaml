@@ -1,0 +1,71 @@
+﻿<Window x:Class="Delivery.Casements.WindowWork"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Delivery.Casements"
+        mc:Ignorable="d"
+        Title="WindowWork" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+         <StackPanel Background="#FFBFD4A4" 
+                     MouseEnter="btnDeliversMouseEnter" 
+                     MouseLeave="btnDeliversMouseLeave">
+            <Image Source="/Delivery;component/Resources/logo(noTittle).png" 
+                   Height="50" 
+                   Margin="0,0,0,20"/>
+            <Button Background="#FFAC254F" 
+                    Style="{StaticResource btnMenu}" 
+                    Name="btnDelivers" 
+                    Click="btnDeliversClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Delivery;component/Resources/deliver.png" 
+                           Height="25"/>
+                    <TextBlock Name="tblDelivers" 
+                               Text="Курьеры" 
+                               VerticalAlignment="Center" 
+                               Margin="5,0,0,0" 
+                               Visibility="Collapsed"/>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource btnMenu}" 
+                    Name="btnOrders" 
+                    Click="btnOrdersClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Delivery;component/Resources/orders.png" 
+                           Height="25"/>
+                    <TextBlock Name="tblOrders" 
+                               Text="Заказы" 
+                               VerticalAlignment="Center" 
+                               Margin="5,0,0,0" 
+                               Visibility="Collapsed"/>
+
+                </StackPanel>
+            </Button>
+            
+        </StackPanel>
+            <Button Height="30" 
+                    VerticalAlignment="Bottom" 
+                    Margin="0,0,0,5" 
+                    Click="btnBackClick">
+                <StackPanel>
+                    <Image Source="/Delivery;component/Resources/back.png" 
+                           Height="25"/>
+                    <TextBlock Name="tblBack" 
+                               Text="Назад" 
+                               VerticalAlignment="Center" 
+                               Margin="5,0,0,0" 
+                               Visibility="Collapsed"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        
+        <Frame Grid.Column="1" 
+               Name="FrameStart"
+               NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

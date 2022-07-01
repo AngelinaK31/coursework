@@ -1,0 +1,110 @@
+﻿<Window x:Class="Delivery.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Delivery"
+        mc:Ignorable="d"
+        Title="Калинка-малинка" 
+        Height="500" Width="400" 
+        ResizeMode="NoResize" 
+        ContentRendered="WindowContentRendered" Icon="/Delivery;component/Resources/logo(noTittle).png">
+    <StackPanel Background="#bfd4a4">
+        <Image Source="/Delivery;component/Resources/logo(noTittle).png" Height="170"/>
+        <Image Source="/Delivery;component/Resources/tittle(inv).png" Height="50"/>
+        <Border Margin="25,35,25,5" 
+                CornerRadius="10" 
+                BorderThickness="1" 
+                BorderBrush="#ac2551" 
+                Background="#ffde91" 
+                Padding="2">
+            <StackPanel Orientation="Horizontal" Background="#ffde91">
+                <Image Source="/Resources/login.png" Height="26" Margin="2"/>
+                <Grid>
+                    <TextBox Name="tbxLogin" 
+                         Width="310" 
+                         Style="{StaticResource tbxLogIn}"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Left"/>
+                    <TextBlock IsHitTestVisible="False" 
+                               Text="Логин" 
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Left" 
+                               Foreground="Gray" 
+                               FontSize="18">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=tbxLogin}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </StackPanel>
+        </Border>
+        <Border Margin="25,5,25,5" 
+                CornerRadius="10" 
+                BorderThickness="1" 
+                BorderBrush="#ac2551" 
+                Background="#ffde91" 
+                Padding="2">
+        <StackPanel Orientation="Horizontal" 
+                    Background="#ffde91">
+            <Image Source="/Resources/password.png" 
+                   Height="26" 
+                   Margin="2"/>
+                <Grid>
+                    <PasswordBox Name="pwdbxPassword"
+                                 Style="{StaticResource pwdLogIn}"
+                                 Visibility="Visible"
+                                 KeyUp="pwdbxPasswordKeyUp"
+                                 Width="270"/>
+                    <TextBlock IsHitTestVisible="False" 
+                               Text="Пароль" 
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Left" 
+                               Foreground="Gray" 
+                               FontSize="18">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=tbxPassword}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBox Name="tbxPassword"
+                         Width="270" 
+                         Style="{StaticResource tbxLogIn}"
+                         KeyUp="tbxPasswordKeyUp"
+                         Visibility="Collapsed"/>
+                </Grid>    
+           
+                         
+                <Button Name="btnShowPwd"
+                        Margin="2" 
+                        Height="26" 
+                        Background="#ffde91" 
+                        BorderThickness="0"
+                        Click="btnShowPwdClick">
+                    <Image Source="/Resources/eye.png"/>
+                </Button>
+            </StackPanel>
+        </Border>
+        <Button Content="Вход" 
+                Margin="20,30,20,0" 
+                Height="30" 
+                Width="250" 
+                FontSize="18"
+                Style="{StaticResource btnLogIn}"
+                Click="btnLogInClick" /> 
+                
+    </StackPanel>
+</Window>
